@@ -12,7 +12,7 @@ stages {
 
       // Get some code from a GitHub repository
 
-      git 'https://github.com/raknas999/hello-world-servlet.git'
+      git 'https://github.com/SRILAKSHIM/hello-world-servlet.git'
 
       // Get the Maven tool.
      
@@ -27,7 +27,7 @@ stages {
        // Run the maven build
 
       //if (isUnix()) {
-         sh 'mvn -Dmaven.test.failure.ignore=true install'
+         sh 'mvn clean package'
       //} 
       //else {
       //   bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore clean package/)
@@ -67,10 +67,10 @@ stages {
 }
 post {
         success {
-            mail to:"raknas000@gmail.com", subject:"SUCCESS: ${currentBuild.fullDisplayName}", body: "Build success"
+            mail to:"kranthirevol@gmail.com", subject:"SUCCESS: ${currentBuild.fullDisplayName}", body: "Build success"
         }
         failure {
-            mail to:"raknas000@gmail.com", subject:"FAILURE: ${currentBuild.fullDisplayName}", body: "Build failed"
+            mail to:"kranthirevol@gmail.com", subject:"FAILURE: ${currentBuild.fullDisplayName}", body: "Build failed"
         }
     }       
 }
